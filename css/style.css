@@ -563,6 +563,33 @@ a:hover {
     }
 }
 
+
+.watch-link {
+    border: 0;
+    background: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    cursor: pointer;
+    font-size: .75rem;
+    border-radius: 50px;
+    border: 2px solid rgba(236, 183, 6, 0.774);
+    padding: 10px 10px;
+}
+
+.watch-link a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.watch-link:hover {
+    background-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(201, 163, 39, 0.233);
+}
+
+
 /* ========== ABOUT SECTION ========== */
 .about-section {
     padding: 5rem 0;
