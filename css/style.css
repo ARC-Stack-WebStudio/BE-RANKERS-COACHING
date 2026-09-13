@@ -590,6 +590,10 @@ a:hover {
 }
 
 
+.payment-imp-note{
+    color: red;
+}
+
 /* ========== ABOUT SECTION ========== */
 .about-section {
     padding: 5rem 0;

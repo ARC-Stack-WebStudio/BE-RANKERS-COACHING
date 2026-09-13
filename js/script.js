@@ -537,6 +537,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
+
 // FEES Payment Direct 
 // ========== FEES PAYMENT DIRECT ==========
 
@@ -557,8 +560,11 @@ const paymentMessage = document.getElementById('paymentMessage');
 const courseFees = {
     "Class 8": 20000,
     "Class 9": 25000,
-    "Class 10": 35000,
-    "Class 11-12": 40000,
+    "Class 10": 30000,
+    "Class 11 SCI": 35000,
+    "Class 11 COM": 25000,
+    "Class 12 SCI": 40000,
+    "Class 12 COM": 30000,
     "JEE": 50000,
     "NEET": 50000,
     "MHT-CET": 45000
@@ -647,9 +653,151 @@ if (paymentInstallment) {
 }
 
 
-// ==========================================
-// FORM SUBMISSION
-// ==========================================
+// ============================================================
+// FEES PAYMENT SYSTEM
+// ============================================================
+
+// const feesPaymentForm = document.getElementById('feesPaymentForm');
+// const feesPaymentModal = document.getElementById('feesPaymentModal');
+
+// const paymentClass = document.getElementById('paymentClass');
+// const paymentInstallment = document.getElementById('paymentInstallment');
+
+const paymentPreviewBox = document.getElementById('paymentPreviewBox');
+
+const previewTotalFees =
+    document.getElementById('previewTotalFees');
+
+const previewInstallment =
+    document.getElementById('previewInstallment');
+
+const previewPayingAmount =
+    document.getElementById('previewPayingAmount');
+
+const previewRemainingAmount =
+    document.getElementById('previewRemainingAmount');
+
+const qrPaymentSection =
+    document.getElementById('qrPaymentSection');
+
+const paymentDoneWhatsapp =
+    document.getElementById('paymentDoneWhatsapp');
+
+const backToPaymentForm =
+    document.getElementById('backToPaymentForm');
+
+
+// ============================================================
+// PAYMENT DATA
+// ============================================================
+
+let paymentData = {
+
+    studentName: '',
+    mobile: '',
+    studentClass: '',
+    installment: '',
+    totalFees: 0,
+    payingAmount: 0,
+    remainingAmount: 0
+
+};
+
+
+// ============================================================
+// UPDATE PAYMENT PREVIEW
+// ============================================================
+
+function updatePaymentPreview() {
+
+    const selectedClass = paymentClass.value;
+    const selectedInstallment = paymentInstallment.value;
+
+    if (!selectedClass || !selectedInstallment) {
+
+        paymentPreviewBox.style.display = 'none';
+
+        return;
+    }
+
+
+    const totalFees = courseFees[selectedClass];
+
+    if (!totalFees) {
+
+        paymentPreviewBox.style.display = 'none';
+
+        return;
+    }
+
+
+    // Two equal installments
+    const installmentAmount = totalFees / 2;
+
+
+    let remainingAmount = 0;
+
+    if (selectedInstallment === 'Installment 1') {
+
+        remainingAmount = totalFees - installmentAmount;
+
+    } else if (selectedInstallment === 'Installment 2') {
+
+        remainingAmount = 0;
+
+    }
+
+
+    // Display preview
+    previewTotalFees.textContent =
+        `₹${totalFees.toLocaleString('en-IN')}`;
+
+    previewInstallment.textContent =
+        selectedInstallment;
+
+    previewPayingAmount.textContent =
+        `₹${installmentAmount.toLocaleString('en-IN')}`;
+
+    previewRemainingAmount.textContent =
+        `₹${remainingAmount.toLocaleString('en-IN')}`;
+
+
+    paymentPreviewBox.style.display = 'block';
+
+}
+
+
+// ============================================================
+// CLASS CHANGE
+// ============================================================
+
+if (paymentClass) {
+
+    paymentClass.addEventListener(
+        'change',
+        updatePaymentPreview
+    );
+
+}
+
+
+// ============================================================
+// INSTALLMENT CHANGE
+// ============================================================
+
+if (paymentInstallment) {
+
+    paymentInstallment.addEventListener(
+        'change',
+        updatePaymentPreview
+    );
+
+}
+
+
+// ============================================================
+// PROCEED TO PAYMENT
+// ============================================================
 
 if (feesPaymentForm) {
 
@@ -658,6 +806,7 @@ if (feesPaymentForm) {
         e.preventDefault();
 
 
+        // Get details
         const studentName =
             document.getElementById('paymentStudentName')
                 .value.trim();
@@ -687,67 +836,215 @@ if (feesPaymentForm) {
         }
 
 
-        // Get total fees
-        const totalFees = courseFees[studentClass];
-
-        // Calculate installment
-        const installmentAmount = totalFees / 2;
+        // Check class fees
+        const totalFees =
+            courseFees[studentClass];
 
 
-        // WhatsApp payment message
+        if (!totalFees) {
+
+            showNotification(
+                'Please select a valid class/course',
+                'error'
+            );
+
+            return;
+        }
+
+
+        // Two equal installments
+        const installmentAmount =
+            totalFees / 2;
+
+
+        // Remaining amount
+        let remainingAmount = 0;
+
+        if (installment === 'Installment 1') {
+
+            remainingAmount =
+                totalFees - installmentAmount;
+
+        } else {
+
+            remainingAmount = 0;
+
+        }
+
+
+        // Save payment data
+        paymentData = {
+
+            studentName: studentName,
+
+            mobile: mobile,
+
+            studentClass: studentClass,
+
+            installment: installment,
+
+            totalFees: totalFees,
+
+            payingAmount: installmentAmount,
+
+            remainingAmount: remainingAmount
+
+        };
+
+
+        // Fill QR payment details
+        document.getElementById('qrStudentName')
+            .textContent = studentName;
+
+        document.getElementById('qrMobile')
+            .textContent = mobile;
+
+        document.getElementById('qrClass')
+            .textContent = studentClass;
+
+        document.getElementById('qrInstallment')
+            .textContent = installment;
+
+        document.getElementById('qrTotalFees')
+            .textContent =
+            `₹${totalFees.toLocaleString('en-IN')}`;
+
+        document.getElementById('qrPayingAmount')
+            .textContent =
+            `₹${installmentAmount.toLocaleString('en-IN')}`;
+
+        document.getElementById('qrRemainingAmount')
+            .textContent =
+            `₹${remainingAmount.toLocaleString('en-IN')}`;
+
+
+        // Hide form
+        feesPaymentForm.style.display = 'none';
+
+
+        // Hide preview
+        paymentPreviewBox.style.display = 'none';
+
+
+        // Show QR section
+        qrPaymentSection.style.display = 'block';
+
+    });
+
+}
+
+
+// ============================================================
+// PAYMENT DONE → WHATSAPP
+// ============================================================
+
+if (paymentDoneWhatsapp) {
+
+    paymentDoneWhatsapp.addEventListener('click', () => {
+
         const whatsappMessage =
             `Hello BE RANKERS COACHING,
 
-           I would like to make a fees payment enquiry.
+I have completed my online fees payment.
 
-           Student Name: ${studentName}
-           Mobile Number: ${mobile}
-           Class / Course: ${studentClass}
+Student Name: ${paymentData.studentName}
+Mobile Number: ${paymentData.mobile}
+Class / Course: ${paymentData.studentClass}
 
-           Total Course Fees: ₹${totalFees.toLocaleString('en-IN')}
-           Selected Payment: ${installment}
-           Amount Payable: ₹${installmentAmount.toLocaleString('en-IN')}
+Total Course Fees: ₹${paymentData.totalFees.toLocaleString('en-IN')}
 
-           Please share the payment details / payment link to complete the payment.
+Selected Installment: ${paymentData.installment}
 
-           Thank you!`;
+Amount Paid: ₹${paymentData.payingAmount.toLocaleString('en-IN')}
 
+Remaining Amount: ₹${paymentData.remainingAmount.toLocaleString('en-IN')}
 
-        // Success notification
-        showNotification(
-            'Payment details prepared! Redirecting to WhatsApp...',
-            'success'
-        );
+I have completed the payment online.
 
+I am sharing the payment screenshot here for verification.
 
-        // Reset form
-        feesPaymentForm.reset();
-
-        paymentAmountBox.style.display = 'none';
-        paymentMessageBox.style.display = 'none';
+Thank you!`;
 
 
-        // Open WhatsApp
+        // WhatsApp
+        openWhatsApp(whatsappMessage);
+
+
+        // Close modal after opening WhatsApp
         setTimeout(() => {
 
-            openWhatsApp(whatsappMessage);
+            if (feesPaymentModal) {
 
+                const modalInstance =
+                    window.bootstrap.Modal.getInstance(
+                        feesPaymentModal
+                    ) ||
+                    new window.bootstrap.Modal(
+                        feesPaymentModal
+                    );
 
-            // Close modal
-            const modalElement =
-                document.getElementById('feesPaymentModal');
+                modalInstance.hide();
 
-            if (modalElement) {
-
-                const bootstrapModal =
-                    window.bootstrap.Modal.getInstance(modalElement) ||
-                    new window.bootstrap.Modal(modalElement);
-
-                bootstrapModal.hide();
             }
 
         }, 500);
 
     });
+
+}
+
+
+// ============================================================
+// BACK TO FORM
+// ============================================================
+
+if (backToPaymentForm) {
+
+    backToPaymentForm.addEventListener('click', () => {
+
+        qrPaymentSection.style.display = 'none';
+
+        feesPaymentForm.style.display = 'block';
+
+        updatePaymentPreview();
+
+    });
+
+}
+
+
+// ============================================================
+// RESET EVERYTHING WHEN MODAL CLOSES
+// ============================================================
+
+if (feesPaymentModal) {
+
+    feesPaymentModal.addEventListener(
+        'hidden.bs.modal',
+        () => {
+
+            feesPaymentForm.reset();
+
+            feesPaymentForm.style.display = 'block';
+
+            qrPaymentSection.style.display = 'none';
+
+            paymentPreviewBox.style.display = 'none';
+
+
+            paymentData = {
+
+                studentName: '',
+                mobile: '',
+                studentClass: '',
+                installment: '',
+                totalFees: 0,
+                payingAmount: 0,
+                remainingAmount: 0
+
+            };
+
+        }
+    );
 
 }

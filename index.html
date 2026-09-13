@@ -79,7 +79,7 @@
                     <p class="hero-subheading">The Secret of Success. Most trustable Coaching Classes in Bhiwandi.</p>
                     <p class="hero-description">
                         Premier coaching BEST institute in Bhiwandi preparing students for SSC, CBSE, JEE, NEET, and
-                        MHT-CET 
+                        MHT-CET
                         exams.
                     </p>
 
@@ -93,7 +93,7 @@
 
                         <button class="watch-link open-video">
                             <span class="mini-play">▶</span>
-                             <a href="https://www.youtube.com/@ashutoshdhawaresir05">Watch school tour</a>
+                            <a href="https://www.youtube.com/@ashutoshdhawaresir05">Watch school tour</a>
                         </button>
                     </div>
 
@@ -1105,7 +1105,7 @@
                         </h4>
 
                         <p class="testimonial-role">
-                           5-Star Google Reviewer
+                            5-Star Google Reviewer
                         </p>
 
                         <a href="https://www.google.com/maps/contrib/108380552168793934181/place/ChIJuZ0qEou95zsRa7QEP6cydDE/@19.098141,72.7897212,11z/data=!4m6!1m5!8m4!1e1!2s108380552168793934181!3m1!1e1?hl=en-GB&entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D"
@@ -1739,6 +1739,8 @@
 
     <!-- ========== MODALS ========== -->
 
+
+
     <!-- ========== FEES PAYMENT MODAL ========== -->
     <div class="modal fade" id="feesPaymentModal" tabindex="-1" aria-labelledby="feesPaymentModalLabel"
         aria-hidden="true">
@@ -1757,6 +1759,7 @@
 
                 <div class="modal-body">
 
+                    <!-- ================= PAYMENT FORM ================= -->
                     <form class="enquiry-modal-form" id="feesPaymentForm">
 
                         <!-- Student Name -->
@@ -1789,33 +1792,16 @@
 
                                 <option value="">Select Class/Course</option>
 
-                                <option value="Class 8">
-                                    Class 8
-                                </option>
-
-                                <option value="Class 9">
-                                    Class 9
-                                </option>
-
-                                <option value="Class 10">
-                                    Class 10
-                                </option>
-
-                                <option value="Class 11-12">
-                                    Class 11-12
-                                </option>
-
-                                <option value="JEE">
-                                    JEE Preparation
-                                </option>
-
-                                <option value="NEET">
-                                    NEET Preparation
-                                </option>
-
-                                <option value="MHT-CET">
-                                    MHT-CET Preparation
-                                </option>
+                                <option value="Class 8">Class 8</option>
+                                <option value="Class 9">Class 9</option>
+                                <option value="Class 10">Class 10</option>
+                                <option value="Class 11 SCI">Class 11 SCI</option>
+                                <option value="Class 11 COM">Class 11 COM</option>
+                                <option value="Class 12 SCI">Class 12 SCI</option>
+                                <option value="Class 12 COM">Class 12 COM</option>
+                                <option value="JEE">JEE Preparation</option>
+                                <option value="NEET">NEET Preparation</option>
+                                <option value="MHT-CET">MHT-CET Preparation</option>
 
                             </select>
                         </div>
@@ -1843,37 +1829,163 @@
                             </select>
                         </div>
 
-                        <!-- Amount Display -->
-                        <div class="mb-3" id="paymentAmountBox" style="display: none;">
+                        <!-- Amount Preview -->
+                        <div class="payment-preview-box mb-3" id="paymentPreviewBox" style="display: none;">
 
-                            <label class="form-label">
-                                Amount Payable
-                            </label>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Total Course Fees</span>
+                                <strong id="previewTotalFees">₹0</strong>
+                            </div>
 
-                            <div class="form-control fw-bold" id="paymentAmount" style="background: #f8f6f2;">
-                                ₹0
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Selected Installment</span>
+                                <strong id="previewInstallment">
+                                    -
+                                </strong>
+                            </div>
+
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Amount Paying Now</span>
+                                <strong id="previewPayingAmount">
+                                    ₹0
+                                </strong>
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between">
+                                <span>Remaining Amount</span>
+                                <strong id="previewRemainingAmount">
+                                    ₹0
+                                </strong>
                             </div>
 
                         </div>
 
-                        <!-- Payment Message -->
-                        <div class="mb-3" id="paymentMessageBox" style="display: none;">
-
-                            <div class="p-3 rounded" style="background: #f8f6f2;">
-
-                                <small id="paymentMessage" class="text-muted">
-                                </small>
-
-                            </div>
-
-                        </div>
-
+                        <!-- Proceed Button -->
                         <button type="submit" class="btn btn-modal-submit w-100">
-                            <i class="bi bi-whatsapp"></i>
+
+                            <i class="bi bi-credit-card"></i>
                             Proceed to Payment
+
                         </button>
 
                     </form>
+
+
+                    <!-- ================= QR PAYMENT SECTION ================= -->
+                    <div id="qrPaymentSection" style="display: none;">
+
+                        <div class="text-center">
+
+                            <h5 class="mb-3">
+                                Complete Your Payment
+                            </h5>
+
+                            <p class="text-muted mb-4">
+                                Please verify your payment details before
+                                scanning the QR code.
+                            </p>
+
+                        </div>
+
+
+                        <!-- Student Payment Details -->
+                        <div class="payment-details-box mb-4">
+
+                            <div class="payment-detail-row">
+                                <span>Student Name</span>
+                                <strong id="qrStudentName">-</strong>
+                            </div>
+
+                            <div class="payment-detail-row">
+                                <span>Mobile Number</span>
+                                <strong id="qrMobile">-</strong>
+                            </div>
+
+                            <div class="payment-detail-row">
+                                <span>Class / Course</span>
+                                <strong id="qrClass">-</strong>
+                            </div>
+
+                            <div class="payment-detail-row">
+                                <span>Installment</span>
+                                <strong id="qrInstallment">-</strong>
+                            </div>
+
+                            <div class="payment-detail-row">
+                                <span>Total Course Fees</span>
+                                <strong id="qrTotalFees">₹0</strong>
+                            </div>
+
+                            <div class="payment-detail-row payment-highlight">
+                                <span>Amount Paying Now</span>
+                                <strong id="qrPayingAmount">₹0</strong>
+                            </div>
+
+                            <div class="payment-detail-row">
+                                <span>Remaining Amount</span>
+                                <strong id="qrRemainingAmount">₹0</strong>
+                            </div>
+
+                        </div>
+
+
+                        <!-- QR CODE -->
+                        <div class="text-center mb-3">
+
+                            <p class="fw-bold mb-2">
+                                Scan QR Code to Pay
+                            </p>
+
+                            <div class="qr-code-container">
+
+                                <!-- CHANGE qr-code.png TO YOUR QR IMAGE NAME -->
+                                <img src="./assets/images/faculty/BE-Ranker-QR-Code.png.jpeg"
+                                    alt="BE RANKERS Coaching Payment QR Code" class="img-fluid payment-qr-code">
+
+                            </div>
+
+                            <p class="small text-muted mt-3 mb-0">
+                                Pay the exact amount shown above.
+                            </p>
+
+                        </div>
+
+
+                        <!-- Screenshot Instruction -->
+                        <div class="payment-instruction-box mt-3 mb-3">
+
+                            <i class="bi bi-info-circle"></i>
+
+                            <span class="payment-imp-note">
+                                After completing the payment, click the
+                                button below and share your payment
+                                screenshot on WhatsApp for verification.
+                            </span>
+
+                        </div>
+
+
+                        <!-- WhatsApp Payment Confirmation -->
+                        <button type="button" class="btn btn-modal-submit w-100" id="paymentDoneWhatsapp">
+
+                            <i class="bi bi-whatsapp"></i>
+
+                            Payment Done – Click to WhatsApp
+
+                        </button>
+
+
+                        <!-- Back Button -->
+                        <button type="button" class="btn btn-outline-secondary w-100 mt-2" id="backToPaymentForm">
+
+                            <i class="bi bi-arrow-left"></i>
+                            Back
+
+                        </button>
+
+                    </div>
 
                 </div>
             </div>
