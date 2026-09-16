@@ -94,42 +94,66 @@ window.addEventListener('scroll', () => {
     }
 });
 
+
+
+
+
+
 // ========== COUNTER ANIMATION WITH SMOOTH FADE EFFECT ==========
+
 const counters = document.querySelectorAll('.counter');
 let countUpDone = false;
 
 function animateCounters() {
+
     counters.forEach((counter, index) => {
+
         const target = parseInt(counter.getAttribute('data-target'));
+        const suffix = counter.getAttribute('data-suffix') || '';
+
         const statCard = counter.closest('.stat-card');
 
-        // Add staggered fade-in animation
+        // Staggered fade-in animation
         statCard.style.animation = `fadeInLeft 0.8s ease-out ${index * 0.15}s both`;
 
         let current = 0;
-        const duration = 2500 + (index * 200); // 2.5 seconds, staggered
+
+        const duration = 2500 + (index * 200);
         const startTime = Date.now();
 
         const updateCounter = () => {
+
             const elapsed = Date.now() - startTime;
+
             const progress = Math.min(elapsed / duration, 1);
 
-            // Easing function for smooth animation
+            // Smooth easing
             const easeOutQuad = 1 - (1 - progress) * (1 - progress);
+
             current = Math.floor(target * easeOutQuad);
 
-            counter.textContent = current;
+            // Number + suffix
+            counter.innerHTML = `${current}<span class="stat-suffix">${suffix}</span>`;
 
             if (progress < 1) {
+
                 requestAnimationFrame(updateCounter);
+
             } else {
-                counter.textContent = target;
+
+                // Final value after counting finishes
+                counter.innerHTML = `${target}<span class="stat-suffix">${suffix}</span>`;
             }
         };
 
         updateCounter();
     });
 }
+
+
+
+
+
 
 // Trigger counter animation when section comes into view
 const resultsSection = document.querySelector('.results-section');
@@ -173,7 +197,8 @@ if (enquiryForm) {
 
         // Get form data
         const studentName = document.getElementById('studentName').value.trim();
-        const parentName = document.getElementById('parentName').value.trim();
+        const location = document.getElementById('location').value.trim();
+        const schoolName = document.getElementById('schoolName').value.trim();
         const mobile = document.getElementById('mobile').value.trim();
         const enquiryType = document.getElementById('enquiryType').value;
         const studentClass = document.getElementById('studentClass').value;
@@ -191,13 +216,14 @@ if (enquiryForm) {
         // Generate WhatsApp message
         const whatsappMessage = `Hello BE RANKERS COACHING,
 
-I would like to make an enquiry.
+           I would like to make an enquiry.
 
-Enquiry For: ${enquiryType}
+           Enquiry For: ${enquiryType}
 
-Student Name: ${studentName}
-Parent Name: ${parentName}
-Mobile Number: ${mobile}
+           Student Name: ${studentName}
+           Location: ${location}
+           schoolName: ${schoolName}
+           Mobile Number: ${mobile}
          Class / Course: ${studentClass}
 
          Message:
@@ -560,7 +586,9 @@ const paymentMessage = document.getElementById('paymentMessage');
 const courseFees = {
     "Class 8": 20000,
     "Class 9": 25000,
+    "Class 9 CBSE": 30000,
     "Class 10": 30000,
+    "Class 10 CBSE": 35000,
     "Class 11 SCI": 35000,
     "Class 11 COM": 25000,
     "Class 12 SCI": 40000,
@@ -811,6 +839,11 @@ if (feesPaymentForm) {
             document.getElementById('paymentStudentName')
                 .value.trim();
 
+         const paymentSchoolName =
+            document.getElementById('paymentSchoolName')
+                .value.trim();
+
+
         const mobile =
             document.getElementById('paymentMobile')
                 .value.trim();
@@ -877,6 +910,8 @@ if (feesPaymentForm) {
 
             studentName: studentName,
 
+            paymentSchoolName: paymentSchoolName,
+
             mobile: mobile,
 
             studentClass: studentClass,
@@ -895,6 +930,9 @@ if (feesPaymentForm) {
         // Fill QR payment details
         document.getElementById('qrStudentName')
             .textContent = studentName;
+
+             document.getElementById('qrSchoolName')
+            .textContent = paymentSchoolName;
 
         document.getElementById('qrMobile')
             .textContent = mobile;
@@ -948,6 +986,7 @@ if (paymentDoneWhatsapp) {
 I have completed my online fees payment.
 
 Student Name: ${paymentData.studentName}
+School Name: ${paymentData.paymentSchoolName}
 Mobile Number: ${paymentData.mobile}
 Class / Course: ${paymentData.studentClass}
 

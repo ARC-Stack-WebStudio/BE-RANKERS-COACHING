@@ -886,9 +886,8 @@ a:hover {
     letter-spacing: -1px;
 }
 
-.stat-percent,
-.stat-plus {
-    font-size: 1.5rem;
+.stat-suffix {
+    font-size: 26px;
     margin-left: 0.25rem;
 }
 
@@ -1625,6 +1624,31 @@ a:hover {
 }
 
 /* ========== FLOATING ACTIONS ========== */
+/* Floating Offer Button */
+.floating-offer {
+    border: none;
+    cursor: pointer;
+    background: #dc3545;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.floating-offer i{
+    font-size: 15px;
+}
+
+.floating-offer span{
+    font-size: 12px;
+}
+
+.floating-offer:hover {
+    opacity: 0.9;
+}
+
+
 .floating-actions {
     position: fixed;
     bottom: 30px;

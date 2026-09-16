@@ -73,7 +73,7 @@
         <div class="container-fluid hero-content">
             <div class="row align-items-center justify-content-center h-100">
                 <div class="col-12 col-lg-7 text-white hero-text">
-                    <div class="hero-eyebrow">Excellence in Education</div>
+                    <div class="hero-eyebrow">Excellence in Education, Since 2019 </div>
                     <h1 class="hero-heading"><span><img src="assets/images/BE RANKERS Logo.jpeg" alt="BE RANKERS Logo"
                                 class="brand-logo-img-rankers"></span> BE RANKERS COACHING</h1>
                     <p class="hero-subheading">The Secret of Success. Most trustable Coaching Classes in Bhiwandi.</p>
@@ -93,7 +93,7 @@
 
                         <button class="watch-link open-video">
                             <span class="mini-play">▶</span>
-                            <a href="https://www.youtube.com/@ashutoshdhawaresir05">Watch school tour</a>
+                            <a href="https://www.youtube.com/@ashutoshdhawaresir05">Watch Classes tour</a>
                         </button>
                     </div>
 
@@ -463,34 +463,46 @@
             </div>
 
             <!-- Achievement Statistics -->
+            <!-- Achievement Statistics -->
             <div class="achievement-stats mb-5">
                 <div class="row g-4">
+
                     <div class="col-6 col-sm-6 col-md-3">
                         <div class="stat-card">
-                            <div class="stat-number counter" data-target="800">800+</div>
+                            <div class="stat-number counter" data-target="800" data-suffix="+">
+                                800
+                            </div>
                             <div class="stat-label">Students Guided</div>
                         </div>
                     </div>
+
                     <div class="col-6 col-sm-6 col-md-3">
                         <div class="stat-card">
-                            <div class="stat-number counter" data-target="96">96<span class="stat-percent">%</span>
+                            <div class="stat-number counter" data-target="96" data-suffix="%">
+                                96
                             </div>
                             <div class="stat-label">Excellent Score</div>
                         </div>
                     </div>
+
                     <div class="col-6 col-sm-6 col-md-3">
                         <div class="stat-card">
-                            <div class="stat-number counter" data-target="8">8<span class="stat-plus">+</span></div>
+                            <div class="stat-number counter" data-target="8" data-suffix="+">
+                                8
+                            </div>
                             <div class="stat-label">Years Excellence</div>
                         </div>
                     </div>
+
                     <div class="col-6 col-sm-6 col-md-3">
                         <div class="stat-card">
-                            <div class="stat-number counter" data-target="99%">99<span class="stat-percent">%</span>
+                            <div class="stat-number counter" data-target="99" data-suffix="%">
+                                99
                             </div>
                             <div class="stat-label">Success Rate</div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -1591,9 +1603,15 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="parentName" class="form-label">Parent Name</label>
-                            <input type="text" class="form-control" id="parentName" name="parentName"
-                                placeholder="Enter parent name" required>
+                            <label for="location" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="location" name="location"
+                                placeholder="Enter Location" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="schoolName" class="form-label">School Name</label>
+                            <input type="text" class="form-control" id="schoolName" name="schoolName"
+                                placeholder="Enter school name" required>
                         </div>
 
                         <div class="mb-3">
@@ -1724,6 +1742,12 @@
 
     <!-- ========== FLOATING ACTION BUTTONS (Mobile) ========== -->
     <div class="floating-actions" id="floatingActions">
+        <!-- Floating Offer Button -->
+        <button class="floating-btn floating-offer" type="button" title="Special Offer">
+            <i class="bi bi-gift-fill"></i>
+            <span>Offer</span>
+        </button>
+
         <a href="tel:9373072406" class="floating-btn floating-call" title="Call Us">
             <i class="bi bi-telephone-fill"></i>
         </a>
@@ -1774,6 +1798,16 @@
 
                         <!-- Mobile -->
                         <div class="mb-3">
+                            <label for="paymentSchoolName" class="form-label">
+                                School Name
+                            </label>
+
+                            <input type="text" class="form-control" id="paymentSchoolName" name="schoolName"
+                                placeholder="Enter school name" required>
+                        </div>
+
+                        <!-- Mobile -->
+                        <div class="mb-3">
                             <label for="paymentMobile" class="form-label">
                                 Mobile Number
                             </label>
@@ -1794,11 +1828,12 @@
 
                                 <option value="Class 8">Class 8</option>
                                 <option value="Class 9">Class 9</option>
+                                <option value="Class 9 CBSE">Class 9 CBSE</option>
                                 <option value="Class 10">Class 10</option>
+                                <option value="Class 10 CBSE">Class 10 CBSE</option>
                                 <option value="Class 11 SCI">Class 11 SCI</option>
                                 <option value="Class 11 COM">Class 11 COM</option>
                                 <option value="Class 12 SCI">Class 12 SCI</option>
-                                <option value="Class 12 COM">Class 12 COM</option>
                                 <option value="JEE">JEE Preparation</option>
                                 <option value="NEET">NEET Preparation</option>
                                 <option value="MHT-CET">MHT-CET Preparation</option>
@@ -1896,6 +1931,11 @@
                             <div class="payment-detail-row">
                                 <span>Student Name</span>
                                 <strong id="qrStudentName">-</strong>
+                            </div>
+
+                            <div class="payment-detail-row">
+                                <span>School Name</span>
+                                <strong id="qrSchoolName">-</strong>
                             </div>
 
                             <div class="payment-detail-row">
