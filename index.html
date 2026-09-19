@@ -1622,7 +1622,7 @@
     </section>
 
 
-    <!-- ========== ADMISSION CTA SECTION ========== -->
+    <!-- ========== ADMISSION Payment SECTION ========== -->
     <section class="admission-cta-section py-5 bg-gradient-premium">
         <div class="container-lg">
             <div class="row align-items-center">
@@ -2105,8 +2105,8 @@
                             <div class="qr-code-container">
 
                                 <!-- CHANGE qr-code.png TO YOUR QR IMAGE NAME -->
-                                <img src="./assets/images/faculty/BE-Ranker-QR-Code.png.jpeg"
-                                    alt="BE RANKERS Coaching Payment QR Code" class="img-fluid payment-qr-code">
+                                <img id="paymentQR" alt="BE RANKERS Coaching Payment QR Code"
+                                    class="img-fluid payment-qr-code">
 
                             </div>
 
@@ -2185,6 +2185,12 @@
 
     <!-- Custom JavaScript -->
     <script src="js/script.js"></script>
+
+    <script>
+        const qr = document.getElementById("paymentQR");
+
+        qr.src = "./assets/images/faculty/BE-Ranker-QR-Code.png.jpeg";
+    </script>
 
 </body>
 
