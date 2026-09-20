@@ -943,6 +943,10 @@ a:hover {
     margin-bottom: 1.5rem;
 }
 
+.topper-achievement strong{
+   font-size: 20px;
+}
+
 .topper-quote {
     color: rgba(255, 255, 255, 0.9);
     font-style: italic;
