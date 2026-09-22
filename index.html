@@ -84,7 +84,7 @@
                     </p>
 
                     <div class="hero-cta-group">
-                        <button class="btn btn-hero-primary" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        <button class="btn btn-hero-primary" data-bs-toggle="modal" data-bs-target="">
                             <i class="bi bi-chat-dots"></i> Enquire Now
                         </button>
                         <a href="tel:9373072406" class="btn btn-hero-secondary">
@@ -301,6 +301,9 @@
 
     <section id="director" class="director-section py-5">
         <div class="container-lg">
+            <h2 class="section-heading">
+                We Follow Guidelines this Quality Education
+            </h2>
             <div class="row align-items-center gap-4 gap-lg-0">
 
                 <!-- Director Content -->
@@ -360,9 +363,6 @@
             </div>
         </div>
     </section>
-
-
-
 
     <!-- ========== WHY CHOOSE US SECTION ========== -->
     <section id="why-choose" class="why-choose-section py-5">
@@ -979,7 +979,8 @@
                             <li><i class="bi bi-check"></i> 100% Registered & Approved</li>
                             <li><i class="bi bi-check"></i> No Dummy School Integration</li>
                         </ul>
-                        <button class="btn btn-fee-cta" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        <button class="btn btn-fee-cta"
+                            onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">
                             Enquire
                         </button>
                     </div>
@@ -1001,7 +1002,8 @@
                             <li><i class="bi bi-check"></i> Qualified Graduate Faculty</li>
                             <li><i class="bi bi-check"></i> Transparent & Fixed Fee Structure</li>
                         </ul>
-                        <button class="btn btn-fee-cta" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        <button class="btn btn-fee-cta"
+                            onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">
                             Enquire
                         </button>
                     </div>
@@ -1024,8 +1026,9 @@
                             <li><i class="bi bi-check"></i> Board Exam Strategies</li>
                             <li><i class="bi bi-check"></i> Maximum 25 Students per Batch</li>
                         </ul>
-                        <button class="btn btn-fee-cta-featured" data-bs-toggle="modal" data-bs-target="#enquiryModal">
-                            Enquire Now
+                        <button class="btn btn-fee-cta-featured"
+                            onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">
+                            Enquire
                         </button>
                     </div>
                 </div>
@@ -1046,7 +1049,8 @@
                             <li><i class="bi bi-check"></i> Career Guidance</li>
                             <li><i class="bi bi-check"></i> Safe & Verified Infrastructure</li>
                         </ul>
-                        <button class="btn btn-fee-cta" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        <button class="btn btn-fee-cta"
+                            onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">
                             Enquire
                         </button>
                     </div>
@@ -1069,7 +1073,8 @@
                             <li><i class="bi bi-check"></i> Paper-Solving Guidance</li>
                             <li><i class="bi bi-check"></i> Qualified Graduate Faculty</li>
                         </ul>
-                        <button class="btn btn-fee-cta" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        <button class="btn btn-fee-cta-featured"
+                            onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">
                             Enquire
                         </button>
                     </div>
@@ -1095,11 +1100,10 @@
                             <li><i class="bi bi-check"></i> Exam Strategy & Paper-Solving Guidance</li>
                             <li><i class="bi bi-check"></i> Ethical Marketing & Verified Progress</li>
                         </ul>
-
-                        <button class="btn btn-fee-cta" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        <button class="btn btn-fee-cta"
+                            onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">
                             Enquire
                         </button>
-
                     </div>
                 </div>
 
@@ -1123,7 +1127,8 @@
                             <li><i class="bi bi-check"></i> Problem Solving Sessions</li>
                             <li><i class="bi bi-check"></i> Revision Classes</li>
                         </ul>
-                        <button class="btn btn-fee-cta" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        <button class="btn btn-fee-cta"
+                            onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">
                             Enquire
                         </button>
                     </div>
@@ -1143,7 +1148,8 @@
                             <li><i class="bi bi-check"></i> Biology Focus Modules</li>
                             <li><i class="bi bi-check"></i> Exam Strategy Sessions</li>
                         </ul>
-                        <button class="btn btn-fee-cta" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        <button class="btn btn-fee-cta"
+                            onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">
                             Enquire
                         </button>
                     </div>
@@ -1163,7 +1169,8 @@
                             <li><i class="bi bi-check"></i> Multiple Mock Tests</li>
                             <li><i class="bi bi-check"></i> Question Bank Access</li>
                         </ul>
-                        <button class="btn btn-fee-cta" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        <button class="btn btn-fee-cta"
+                            onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">
                             Enquire
                         </button>
                     </div>
@@ -2172,8 +2179,7 @@
                 </div>
                 <div class="modal-footer border-0">
                     <button type="button" class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-modal-enquire" data-bs-toggle="modal"
-                        data-bs-target="#enquiryModal">
+                    <button type="button" class="btn btn-modal-enquire" onclick="goToContact();">
                         Enquire for this Course
                     </button>
                 </div>

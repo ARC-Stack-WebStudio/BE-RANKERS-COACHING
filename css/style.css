@@ -1916,7 +1916,7 @@ a:hover {
     }
 
     .floating-actions {
-        flex-direction: row;
+        /* flex-direction: row; */
         gap: 0.5rem;
         bottom: 20px;
         right: 10px;

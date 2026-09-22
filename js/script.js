@@ -1087,3 +1087,24 @@ if (feesPaymentModal) {
     );
 
 }
+
+
+
+// Enquire For This Course
+function goToContact() {
+    const modalElement = document.getElementById('courseModal');
+    const modalInstance = bootstrap.Modal.getInstance(modalElement);
+
+    if (modalInstance) {
+        modalInstance.hide();
+    }
+
+    modalElement.addEventListener('hidden.bs.modal', function handleModalClose() {
+        modalElement.removeEventListener('hidden.bs.modal', handleModalClose);
+
+        document.getElementById('contact').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+}
