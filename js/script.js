@@ -68,31 +68,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ========== BACK TO TOP BUTTON ==========
 const backToTopBtn = document.getElementById('backToTopBtn');
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        backToTopBtn.classList.add('show');
-    } else {
-        backToTopBtn.classList.remove('show');
-    }
-});
-
-backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
     });
-});
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
 
 // ========== FLOATING ACTIONS ==========
 const floatingActions = document.getElementById('floatingActions');
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-        floatingActions.classList.add('show');
-    } else {
-        floatingActions.classList.remove('show');
-    }
-});
+if (floatingActions) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            floatingActions.classList.add('show');
+        } else {
+            floatingActions.classList.remove('show');
+        }
+    });
+}
 
 
 
@@ -514,8 +518,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const galleryModalImage = document.getElementById("galleryModalImage");
     const galleryModalTitle = document.getElementById("galleryModalTitle");
 
-    if (!galleryModal) {
-        console.error("Gallery modal not found!");
+    if (!galleryModal || !galleryModalImage || !galleryModalTitle) {
+        console.error("Gallery modal elements not found!");
         return;
     }
 
@@ -524,6 +528,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const button = event.relatedTarget;
 
         if (!button) {
+            console.error("Gallery button not found!");
             return;
         }
 
@@ -533,20 +538,19 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Gallery Image:", image);
         console.log("Gallery Title:", title);
 
-        if (image) {
-            galleryModalImage.src = image;
-        }
+        // Set image source
+        galleryModalImage.setAttribute("src", image);
 
-        if (title) {
-            galleryModalTitle.textContent = title;
-            galleryModalImage.alt = title;
-        }
+        // Set image title and alt
+        galleryModalTitle.textContent = title || "Gallery Image";
+        galleryModalImage.setAttribute("alt", title || "Gallery Image");
+
     });
 
     galleryModal.addEventListener("hidden.bs.modal", function () {
 
-        galleryModalImage.src = "";
-        galleryModalImage.alt = "Gallery Image";
+        galleryModalImage.removeAttribute("src");
+        galleryModalImage.setAttribute("alt", "Gallery Image");
         galleryModalTitle.textContent = "Gallery Image";
 
     });
@@ -564,12 +568,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
 // FEES Payment Direct 
 // ========== FEES PAYMENT DIRECT ==========
 
 const feesPaymentForm = document.getElementById('feesPaymentForm');
+const feesPaymentModal = document.getElementById('feesPaymentModal');
 const paymentClass = document.getElementById('paymentClass');
 const paymentInstallment = document.getElementById('paymentInstallment');
 const paymentAmountBox = document.getElementById('paymentAmountBox');
