@@ -1875,7 +1875,8 @@
     <!-- ========== FLOATING ACTION BUTTONS (Mobile) ========== -->
     <div class="floating-actions" id="floatingActions">
         <!-- Floating Offer Button -->
-        <button class="floating-btn floating-offer" type="button" title="Special Offer">
+        <button class="floating-btn floating-offer" type="button" title="Special Offer"
+            data-bs-toggle="modal" data-bs-target="#offerModal" aria-haspopup="dialog" aria-controls="offerModal">
             <i class="bi bi-gift-fill"></i>
             <span>Offer</span>
         </button>
@@ -1894,6 +1895,41 @@
     </button>
 
     <!-- ========== MODALS ========== -->
+
+    <!-- ========== CLASS 12 OFFER MODAL ========== -->
+    <div class="modal fade" id="offerModal" tabindex="-1" aria-labelledby="offerModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable offer-modal-dialog">
+            <div class="modal-content modal-premium offer-modal-content">
+                <button type="button" class="btn-close offer-modal-close" data-bs-dismiss="modal"
+                    aria-label="Close offer"></button>
+                <div class="modal-body offer-modal-body">
+                    <div class="offer-modal-icon" aria-hidden="true"><i class="bi bi-gift-fill"></i></div>
+                    <div class="section-label offer-modal-label">Special Course Offer</div>
+                    <h2 class="offer-modal-title" id="offerModalTitle">Class 12</h2>
+                    <div class="offer-modal-pricing" aria-label="Discounted price 34,000 rupees, originally 40,000 rupees">
+                        <del class="offer-modal-original">₹40,000</del>
+                        <span class="offer-modal-discount">Save ₹6,000</span>
+                        <div class="offer-modal-price">₹34,000</div>
+                    </div>
+                    <h3 class="offer-modal-includes">Course includes</h3>
+                    <ul class="offer-modal-benefits">
+                        <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>State Board Academics (PCB/PCM)</span></li>
+                        <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>Weekly Mock Tests</span></li>
+                        <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>Practice Problem Sets</span></li>
+                        <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>Regular Assessments</span></li>
+                        <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>24/7 Doubt Support</span></li>
+                        <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>Paper-Solving Guidance</span></li>
+                        <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>Qualified Graduate Faculty</span></li>
+                    </ul>
+                    <a class="btn btn-modal-enquire offer-modal-cta"
+                        href="https://wa.me/919373072406?text=Hello%20BE%20RANKERS%20COACHING%2C%20I%27m%20interested%20in%20the%20Class%2012%20course%20offer."
+                        target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-whatsapp" aria-hidden="true"></i> Enquire Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
