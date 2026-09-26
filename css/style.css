@@ -597,6 +597,7 @@ a:hover {
 /* ========== ABOUT SECTION ========== */
 .about-section {
     padding: 5rem 0;
+    margin-top: 70px;
 }
 
 .about-image-wrapper {
@@ -785,6 +786,7 @@ a:hover {
 /* ========== WHY CHOOSE SECTION ========== */
 .why-choose-section {
     padding: 5rem 0;
+    margin-top: 70px;
 }
 
 .feature-card {
@@ -1933,6 +1935,296 @@ a:hover {
     background-color: rgba(201, 162, 39, 0.1);
 }
 
+
+
+/* located at Anjurphata in Bhiwandi. */
+.map-section {
+  position: relative;
+  width: 100%;
+  height: 390px;
+  overflow: hidden;
+  background: #e5edf6;
+}
+
+/* Background Map Pattern */
+.map-pattern {
+  position: absolute;
+  inset: -30px;
+
+  background-color: #e9eff5;
+
+  background-image:
+    linear-gradient(
+      30deg,
+      #d4dfe9 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #d4dfe9 87.5%,
+      #d4dfe9
+    ),
+    linear-gradient(
+      150deg,
+      #d4dfe9 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #d4dfe9 87.5%,
+      #d4dfe9
+    ),
+    linear-gradient(
+      30deg,
+      #d4dfe9 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #d4dfe9 87.5%,
+      #d4dfe9
+    ),
+    linear-gradient(
+      150deg,
+      #d4dfe9 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #d4dfe9 87.5%,
+      #d4dfe9
+    ),
+    linear-gradient(
+      60deg,
+      #c9d8e6 25%,
+      transparent 25.5%,
+      transparent 75%,
+      #c9d8e6 75%
+    );
+
+  background-size: 80px 140px;
+  opacity: 0.6;
+
+  transform: rotate(-8deg) scale(1.2);
+}
+
+/* Map Card */
+.map-card {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+
+  width: calc(100% - 48px);
+  max-width: 360px;
+
+  background: #ffffff;
+  padding: 26px;
+
+  border-radius: 18px;
+
+  box-shadow: var(--shadow);
+
+  z-index: 10;
+}
+
+/* Small Heading */
+.map-card > span {
+  display: block;
+
+  font-size: 9px;
+  line-height: 1.4;
+
+  color: var(--blue);
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  margin-bottom: 7px;
+}
+
+/* Main Heading */
+.map-card h3 {
+  font-size: 20px;
+  line-height: 1.35;
+
+  margin: 0 0 8px;
+}
+
+/* Address */
+.map-card p {
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: var(--muted);
+
+  margin: 0 0 16px;
+}
+
+/* Location Pin */
+.map-pin {
+  position: absolute;
+
+  left: 58%;
+  top: 50%;
+
+  width: 65px;
+  height: 65px;
+
+  border-radius: 50% 50% 50% 0;
+
+  transform: translate(-50%, -50%) rotate(-45deg);
+
+  background: var(--blue);
+  color: #ffffff;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 22px;
+
+  box-shadow: 0 14px 30px #1769e055;
+
+  z-index: 5;
+}
+
+.map-pin i {
+  transform: rotate(45deg);
+}
+
+/* Google Map */
+.map-embed-container {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 0;
+
+  z-index: 1;
+}
+
+.map-embed-container iframe {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  border: 0;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .map-section {
+    height: 420px;
+  }
+
+  .map-card {
+    left: 20px;
+    bottom: 20px;
+
+    max-width: 330px;
+
+    padding: 22px;
+  }
+
+  .map-card h3 {
+    font-size: 18px;
+  }
+
+  .map-pin {
+    left: 65%;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .map-section {
+    height: 500px;
+  }
+
+  .map-pattern {
+    transform: rotate(-8deg) scale(1.5);
+  }
+
+  .map-card {
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+
+    width: auto;
+    max-width: none;
+
+    padding: 20px;
+
+    border-radius: 16px;
+  }
+
+  .map-card > span {
+    font-size: 8px;
+    letter-spacing: 0.8px;
+  }
+
+  .map-card h3 {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .map-card p {
+    font-size: 11px;
+    margin-bottom: 14px;
+  }
+
+  .map-card .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .map-pin {
+    left: 50%;
+    top: 35%;
+
+    width: 55px;
+    height: 55px;
+
+    font-size: 19px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .map-section {
+    height: 470px;
+  }
+
+  .map-card {
+    padding: 17px;
+  }
+
+  .map-card h3 {
+    font-size: 16px;
+  }
+
+  .map-card p {
+    font-size: 10px;
+  }
+
+  .map-card .btn {
+    font-size: 11px;
+  }
+}
+
+
+
+
 /* ========== SCROLL REVEAL ANIMATION ========== */
 .scroll-reveal {
     opacity: 0;
@@ -1996,7 +2288,7 @@ a:hover {
     }
 
     .hero-section {
-        margin-top: 50px;
+        margin-top: 70px;
         height: 80vh;
     }
 
