@@ -260,7 +260,14 @@
                         <img src="assets/images/toppers/BE-Topper.jpeg" alt="Top Performer" class="topper-image">
                     </div>
                     <div class="col-12 col-md-8">
-                        <div class="topper-badge">Top Performer</div>
+                                                <div class="prathmesh-video-review-intro">Prathmesh Jha Video Review About BE RANKERS COACHING</div>
+                        <button type="button" class="prathmesh-video-review-trigger" id="prathmeshVideoReviewTrigger"
+                            aria-haspopup="dialog" aria-controls="prathmeshVideoReviewModal">
+                            <i class="bi bi-play-circle-fill" aria-hidden="true"></i>
+                            <span>Watch Video Review</span>
+                        </button>
+
+                        <div class="topper-badge">Top Performer Of The Year</div>
                         <h3 class="topper-name">Prathmesh Jha</h3>
                         <p class="topper-achievement">
                             <strong>96% in SSC</strong><br>
@@ -1031,7 +1038,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq1">
+                                    data-bss-target="#faq1">
                                     Where are BE RANKERS COACHING classes located in Bhiwandi?
                                 </button>
                             </h2>
@@ -1050,7 +1057,7 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq2">
-                                    Which BE RANKERS center is convenient for students from Kalyan Road or Mansarovar?
+                                    Which BE RANKERS center is convenient for students from Kamatghar?
                                 </button>
                             </h2>
                             <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
@@ -1069,7 +1076,8 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq3">
-                                    Are BE RANKERS coaching centers easily accessible for school students in Bhiwandi?
+                                    Are BE RANKERS coaching centers easily accessible for school students in Bhiwandi
+                                    and Anjurphata?
                                 </button>
                             </h2>
                             <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
@@ -1961,6 +1969,32 @@
         </div>
     </div>
 
+    <!-- Prathmesh Jha video review modal -->
+    <div class="prathmesh-video-review-modal" id="prathmeshVideoReviewModal" role="dialog" aria-modal="true"
+        aria-labelledby="prathmeshVideoReviewTitle" aria-hidden="true" hidden>
+        <div class="prathmesh-video-review-modal-inner container" role="document" tabindex="-1">
+            <div class="prathmesh-video-review-header row align-items-start">
+                <div class="col-10 col-md-11">
+                    <h2 class="prathmesh-video-review-title" id="prathmeshVideoReviewTitle">Prathmesh Jha</h2>
+                    <p class="prathmesh-video-review-subtitle">Top Performer 2025-26</p>
+                </div>
+                <div class="col-2 col-md-1 text-end">
+                    <button type="button" class="prathmesh-video-review-close" id="prathmeshVideoReviewClose"
+                        aria-label="Close Prathmesh Jha video review">&times;</button>
+                </div>
+            </div>
+            <div class="prathmesh-video-review-body row">
+                <div class="col-12">
+                    <video class="prathmesh-video-review-player" id="prathmeshVideoReviewPlayer" controls playsinline
+                        preload="metadata" aria-label="Prathmesh Jha Top Performer 2025-26 video review">
+                        <source src="assets/videos/Prathmesh%20Jha%20-%20Top%20Performer%202025-26.mp4"
+                            type="video/mp4">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Bootstrap 5 JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 

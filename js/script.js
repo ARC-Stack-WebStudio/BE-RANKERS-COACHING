@@ -1111,3 +1111,50 @@ function goToContact() {
         });
     });
 }
+// Prathmesh Jha video review modal (isolated from the Bootstrap modal system)
+(() => {
+    const trigger = document.getElementById('prathmeshVideoReviewTrigger');
+    const modal = document.getElementById('prathmeshVideoReviewModal');
+    const closeButton = document.getElementById('prathmeshVideoReviewClose');
+    const player = document.getElementById('prathmeshVideoReviewPlayer');
+    const dialog = modal?.querySelector('.prathmesh-video-review-modal-inner');
+    if (!trigger || !modal || !closeButton || !player || !dialog) return;
+
+    let previousFocus = null;
+    let previousOverflow = '';
+    const openReview = () => {
+        previousFocus = document.activeElement;
+        previousOverflow = document.body.style.overflow;
+        player.pause();
+        try { player.currentTime = 0; } catch (_) { /* Metadata may not be loaded yet. */ }
+        modal.hidden = false;
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        closeButton.focus();
+    };
+    const closeReview = () => {
+        if (modal.hidden) return;
+        player.pause();
+        try { player.currentTime = 0; } catch (_) { /* Keep close behavior safe during loading. */ }
+        modal.hidden = true;
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = previousOverflow;
+        if (previousFocus && typeof previousFocus.focus === 'function') previousFocus.focus();
+    };
+
+    trigger.addEventListener('click', openReview);
+    closeButton.addEventListener('click', closeReview);
+    modal.addEventListener('click', (event) => { if (event.target === modal) closeReview(); });
+    document.addEventListener('keydown', (event) => {
+        if (!modal.hidden && event.key === 'Escape') { event.preventDefault(); closeReview(); }
+        if (!modal.hidden && event.key === 'Tab') {
+            const focusable = modal.querySelectorAll('button:not([disabled]), video[controls]');
+            if (!focusable.length) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+            else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+        }
+    });
+    player.addEventListener('loadedmetadata', () => { if (modal.hidden) player.currentTime = 0; });
+})();
