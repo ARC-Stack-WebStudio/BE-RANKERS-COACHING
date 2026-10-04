@@ -2268,6 +2268,12 @@ a:hover {
     .btn-back-to-top {
         right: 80px;
     }
+
+    .topper-image-wrapper{
+        display: flex;
+        /* justify-content: center; */
+        margin-left: 40px;
+    }
 }
 
 /* Mobile Devices */
@@ -2348,10 +2354,19 @@ a:hover {
         gap: 1rem;
     }
 
+    .prathmesh-video-review-trigger{
+        margin-bottom: 7px;
+    }
+
     .topper-badge {
         display: block;
         margin-bottom: 1rem;
     }
+    
+     .topper-image-wrapper{
+        margin-left: 1px;
+    }
+
 
     .contact-info-wrapper {
         padding: 2rem;
