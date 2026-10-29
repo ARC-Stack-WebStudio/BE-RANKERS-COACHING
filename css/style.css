@@ -2564,6 +2564,28 @@ a:hover {
     }
 }
 
+@media (max-width: 385px) {
+    .hero-eyebrow{
+        font-size: 12px;
+    }
+
+    .hero-heading{
+        margin-bottom: 2px;
+    }
+
+    .hero-description{
+        font-size: 11px;
+    }
+
+    .hero-cta-group{
+     margin-bottom: 5px;
+    }
+
+    .trust-badge{
+        padding: 5px;
+    }
+}
+
 /* Print Styles */
 @media print {
 
